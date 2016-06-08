@@ -374,7 +374,8 @@ Blockly.Connection.prototype.isConnectionAllowed = function(candidate) {
   // stack.
   if (this.type == Blockly.PREVIOUS_STATEMENT &&
       candidate.isConnected() &&
-      !this.sourceBlock_.nextConnection) {
+      !this.sourceBlock_.nextConnection &&
+      !candidate.targetBlock().isShadow()) {
     return false;
   }
 
